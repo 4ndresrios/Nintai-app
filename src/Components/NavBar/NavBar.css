@@ -23,11 +23,16 @@ li{
     color: #d90080;
 }
 
+.buttonZone {
+    display: flex;
+    margin: 20px 20px;
+    flex-direction: row;
+}
+
 .button {
         border: none;
         background-color: #5cb6a9;
         color: #fff;
         padding: 10px 20px;
-        margin: 20px 20px;
         border-radius: 50rem
 }

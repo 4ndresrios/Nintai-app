@@ -1,5 +1,6 @@
 import logo from "../../logo.svg";
 import "./NavBar.css";
+import CartWidget from "../CartWidget/CartWidget";
 
 const NavBar = () => {
     return(
@@ -20,7 +21,9 @@ const NavBar = () => {
                     </li>
                 </ul>
             </div>
-            <div>
+           
+            <div className="buttonZone">
+                <CartWidget/>
                 <button className="button">Login</button>
             </div>
         </div>
