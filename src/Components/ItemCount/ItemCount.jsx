@@ -1,10 +1,11 @@
 import { useState } from "react";
 import "./ItemCount.css";
 
-const ItemCount = () => {
-    const [contador, setContador] = useState(0);
+
+const ItemCount = ({stock, initial, onAdd}) => {
+    const [contador, setContador] = useState(initial);
         const suma =()=>{
-            if (contador <= 9) {
+            if (contador < stock) {
             setContador(contador+1)
             }
         }
