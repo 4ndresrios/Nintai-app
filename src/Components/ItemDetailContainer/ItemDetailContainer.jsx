@@ -1,11 +1,9 @@
-import data from "./mock-data"
+import data from "./mock-detail"
 import { useState, useEffect } from "react"
-import Itemlist from "../ItemList/ItemList";
-import "./ItemListContainer.css";
+import ItemDetail from "../ItemDetail/ItemDetail";
 
-
-const ItemListContainer = () => {
-    const [items, setItems] = useState([]);
+const ItemDetailContainer = () => {
+    const [item, setItem] = useState({});
 
     const getData = new Promise((resolve, reject)=>{
         setTimeout(()=>{
@@ -14,15 +12,15 @@ const ItemListContainer = () => {
     });
     useEffect(() => {
         getData.then((result)=>{
-            setItems(result);
+            setItem(result);
             console.log(result)
         })
     }, []);
 
     return(
-        <div className="items">
-            {items.length>0?(
-                 <Itemlist itemsList={items}/>
+        <div>
+            {item.length>0?(
+                 <ItemDetail Item={item}/>
                 ) : (
                     <div>Cargando...</div>
                 )}
@@ -30,4 +28,4 @@ const ItemListContainer = () => {
     );
 };
 
-export default ItemListContainer
+export default ItemDetailContainer;

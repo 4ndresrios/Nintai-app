@@ -1,5 +1,10 @@
 .navbar-conteiner{
     display: flex;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
     flex-direction: row;
     justify-content: space-around;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

@@ -1,7 +1,7 @@
 .items {
     display: flex;
-    justify-content:space-between;
+    justify-content:space-around;
     flex-direction: row;
-    align-content: center;
-    align-items: center;
+    align-content:space-around;
+    align-items:initial;
 }

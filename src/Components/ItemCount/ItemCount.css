@@ -6,7 +6,7 @@
     align-items: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 200px;
-    height: 50px;
+    height: 20px;
     padding: 20px 20px;
 }
 
@@ -21,4 +21,16 @@
 
 .contadorNumber{
     font-size: 30px;
+}
+
+
+
+.buttonAgregar {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    border: none;
+    background-color: #d90080;
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 50rem
 }
