@@ -1,21 +1,29 @@
-import data from "./mock-detail"
+import data from "../../services/mock-data"
 import { useState, useEffect } from "react"
 import ItemDetail from "../ItemDetail/ItemDetail";
+import {useParams} from "react-router-dom";
 
 const ItemDetailContainer = () => {
+    const {productId} = useParams();
     const [item, setItem] = useState({});
 
-    const getData = new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            resolve(data);
-        }, 2000)
-    });
-    useEffect(() => {
-        getData.then((result)=>{
-            setItem(result);
-            console.log(result)
+    const getItem = (id)=>{
+        return new Promise((resolve, reject)=>{
+            setTimeout(()=>{
+                const item = data.find(item=>item.id === parseInt(id));
+                resolve(item)
+            }, 2000)
         })
-    }, []);
+    }
+    useEffect(() => {
+        const getProducto = async()=>{
+            const producto = await getItem(productId);
+            console.log('producto', producto)
+            setItem(producto);
+        }
+        getProducto();
+    },[productId])
+
 
     return(
         <div>

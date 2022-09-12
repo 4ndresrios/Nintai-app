@@ -12,20 +12,28 @@
     width: 100%;
     height:75px;
     background-color: #ffff;
+    margin-bottom: 75px;
 }
 
-ul{
+.menu {
     display: flex;
     flex-direction: row;
     list-style-type: none;
 }
 
-li{
+.claseActive {
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
     padding: 10px 15px;
     color: #d90080;
+}
+.claseInactive {
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 15px;
+    color: #5cb6a9;
 }
 
 .buttonZone {
