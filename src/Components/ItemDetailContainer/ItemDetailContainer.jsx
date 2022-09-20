@@ -10,28 +10,26 @@ const ItemDetailContainer = () => {
     const getItem = (id)=>{
         return new Promise((resolve, reject)=>{
             setTimeout(()=>{
-                const item = data.find(item=>item.id === parseInt(id));
+                const item = data.find((item) => item.id === parseInt(id));
                 resolve(item)
             }, 2000)
         })
     }
     useEffect(() => {
-        const getProducto = async()=>{
-            const producto = await getItem(productId);
-            console.log('producto', producto)
-            setItem(producto);
-        }
-        getProducto();
+        getItem(productId).then((resultado) => {
+            console.log(resultado)
+            setItem(resultado)
+        })
     },[productId])
 
 
     return(
         <div>
-            {item.length>0?(
-                 <ItemDetail Item={item}/>
-                ) : (
+            
+                 {item ? <ItemDetail item={item}/>
+                 : 
                     <div>Cargando...</div>
-                )}
+                }
         </div>
     );
 };
