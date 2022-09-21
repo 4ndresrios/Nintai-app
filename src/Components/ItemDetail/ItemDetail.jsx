@@ -11,6 +11,7 @@ const ItemDetail = ({item})=>{
     const onAdd =(quantity)=> {
         setContador(quantity)
         addItem(item, quantity)
+        
     }
 
     return (

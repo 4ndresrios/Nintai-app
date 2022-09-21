@@ -3,7 +3,7 @@ import {CartContext} from "../../context/CartContext";
 
 
 const CartContainer = () => {
-    const {productCartList, removeItem} = useContext(CartContext);
+    const {productCartList, removeItem, cartClear} = useContext(CartContext);
 
     return(
         <div>
@@ -13,9 +13,12 @@ const CartContainer = () => {
                     <button onClick={()=>removeItem(item.id)}>eliminar producto</button>
                 </>
             ))}
+            {<button onClick={()=>cartClear()}>Clear</button>}
         </div>
     )
 
 }
+
+
 
 export default CartContainer;
