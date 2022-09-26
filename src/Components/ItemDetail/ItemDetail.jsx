@@ -2,6 +2,7 @@ import { useState, useContext } from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import { CartContext } from '../../context/CartContext';
 
+
 const ItemDetail = ({item})=>{
     const {addItem} = useContext(CartContext);
     const [contador, setContador] = useState(0);

@@ -23,7 +23,7 @@ const CartContainer = () => {
                     {productCartList.map(product => <ItemCart key={product.id} product={product} />)}
                 </>
             ))}
-            <p>Total: {totalPrice()}</p>
+            <p>Total: ${totalPrice()}</p>
             {<button onClick={()=>cartClear()}>Clear</button>}
         </div>
     )

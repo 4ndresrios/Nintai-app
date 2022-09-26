@@ -3,18 +3,37 @@ import { useState, useEffect } from "react"
 import Itemlist from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 import {useParams} from 'react-router-dom';
-
+import {db} from "../../utils/ItemCollection"
+import { collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {
+
     const {categoryId} = useParams();
     const [items, setItems] = useState([]);
 
-    const getData = new Promise((resolve, reject)=>{
+    useEffect(()=>{
+        const getData = async()=>{
+            const queryRef = collection(db, "Items");
+            const queryFilter= query(queryRef, where("categoria", "==", categoryId))
+            const response = await getDocs(queryFilter);
+            const productos = response.docs.map(doc =>{
+                const newProducts = {
+                    ...doc.data(),
+                    id: doc.id
+                }
+                return newProducts
+
+            })
+            console.log(productos);
+        }
+        getData()
+    },[categoryId])
+    /* const getData = new Promise((resolve, reject)=>{
         setTimeout(()=>{
             resolve(data);
         }, 2000)
-    });
-    useEffect(() => {
+    }); */
+/*     useEffect(() => {
         getData.then(resultado=>{
             if(categoryId){
                 const newProducts = resultado.filter(item=>item.categoria === categoryId);
@@ -23,7 +42,7 @@ const ItemListContainer = () => {
                 setItems(resultado)
             }
         })
-    },[categoryId])
+    },[categoryId]) */
 
     return(
         <div className="items">
