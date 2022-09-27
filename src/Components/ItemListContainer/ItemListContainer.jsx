@@ -12,38 +12,34 @@ const ItemListContainer = () => {
     const [items, setItems] = useState([]);
 
     useEffect(()=>{
-        const getData = async()=>{
+        if(!categoryId){
             const queryRef = collection(db, "Items");
-            const queryFilter= query(queryRef, where("categoria", "==", categoryId))
-            const response = await getDocs(queryFilter);
-            const productos = response.docs.map(doc =>{
-                const newProducts = {
-                    ...doc.data(),
-                    id: doc.id
-                }
-                return newProducts
-
+            getDocs(queryRef).then(response=>{
+                const productos = response.docs.map(doc =>{
+                    const newProducts = {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                    return newProducts
+                });
+                setItems(productos);
             })
-            console.log(productos);
+        } else {
+            const queryRef = query(collection(db, "Items"),where("categoria", "==", categoryId));
+            getDocs(queryRef).then(response=>{
+                const productos = response.docs.map(doc =>{
+                    const newProducts = {
+                        id: doc.id,
+                        ...doc.data()
+                    }
+                    return newProducts
+                });
+                setItems(productos);
+            })
         }
-        getData()
+        
     },[categoryId])
-    /* const getData = new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            resolve(data);
-        }, 2000)
-    }); */
-/*     useEffect(() => {
-        getData.then(resultado=>{
-            if(categoryId){
-                const newProducts = resultado.filter(item=>item.categoria === categoryId);
-                setItems(newProducts)
-            } else{
-                setItems(resultado)
-            }
-        })
-    },[categoryId]) */
-
+    
     return(
         <div className="items">
             {items.length>0?(

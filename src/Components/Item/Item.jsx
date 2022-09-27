@@ -3,9 +3,6 @@ import {Link} from 'react-router-dom';
 
 const Item = ({id, name, description, price, image, stock})=>{
     
-    const onAdd =(quantity)=> {
-        console.log('Items added to cart: ', quantity);
-    }
 
 
     return (
@@ -14,7 +11,7 @@ const Item = ({id, name, description, price, image, stock})=>{
             <img className="imgItem" src={image} alt={name} />
             <h1 className="name">{name}</h1>
             <p className="description">{description}</p>
-            <p className="price">{price}</p> 
+            <p className="price">${price}</p> 
             <Link to={`/item/${id}`}>
                 <button className='boton-ver'>Ver detalle...</button>
             </Link>
