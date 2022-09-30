@@ -1,7 +1,20 @@
 .items {
-    display: flex;
-    justify-content:space-around;
-    flex-direction: row;
-    align-content:space-around;
+    max-width: 800px;
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     align-items:initial;
+    justify-items: center;
+    justify-content: space-around;
+}
+
+@media (max-width: 930px) {
+    .items {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 550px) {
+    .items {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
