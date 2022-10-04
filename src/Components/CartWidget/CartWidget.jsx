@@ -9,9 +9,9 @@ const CartWidget = () => {
     const {totalProducts} = useContext(CartContext);
 
     return (
-        <Link to="/cart">
+        <Link className="buttonZone" to="/cart">
             <img className="cart" src={cart} alt="cart"/>
-            <span>{totalProducts() || ""}</span>
+            <span className="numberCart">{totalProducts() || ""}</span>
         </Link>
     )
 }

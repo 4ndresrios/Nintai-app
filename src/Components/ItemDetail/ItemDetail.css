@@ -1,0 +1,21 @@
+.detailTarjeta {
+    display: flex;
+}
+
+.imageDetail {
+    width: 500px;
+}
+
+.textDetail {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.h1Detail {
+    font-size: 4ch;
+}
+
+.pDeatail {
+    font-size: 2ch;
+}

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import {db} from "../../utils/ItemCollection";
 import {collection, addDoc} from "firebase/firestore";
 import { useState } from "react";
+import "./CartContainer.css"
 
 
 const CartContainer = () => {
@@ -49,23 +50,24 @@ const CartContainer = () => {
     }
 
     return(
-        <div>
-                {productCartList.map(item=>(
-                <>
+        <div className="Conteiner">
+            <div className="interConteiner">
+                <div className="Conteiner">
                     {productCartList.map(product => <ItemCart key={product.id} product={product} />)}
-                </>
-            ))}
+                </div>
+                <form className="formConteiner" onSubmit={sendOrder}>
+                    <label>Nombre: </label>
+                    <input type="text"/>
+                    <label>Telefono: </label>
+                    <input type="number"/>
+                    <label>Correo: </label>
+                    <input type="email"/>
+                    <button className="buttonAgregar" type="submit">Enviar orden</button>
+                </form>
+            </div>
             <p>Total: ${totalPrice()}</p>
-            {<button onClick={()=>cartClear()}>Clear</button>}
-            <form onSubmit={sendOrder}>
-                <label>Nombre: </label>
-                <input type="text"/>
-                <label>Telefono: </label>
-                <input type="number"/>
-                <label>Correo: </label>
-                <input type="email"/>
-                <button type="submit">Enviar orden</button>
-            </form>
+            {<button className="buttonAgregar" onClick={()=>cartClear()}>Limpiar Carrito</button>}
+            
         </div>
     )
 

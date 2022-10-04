@@ -5,7 +5,10 @@ export const CartContext = React.createContext();
 const CartProvider = ({children}) =>{
     const [productCartList, setProductCartList] = useState([]);
 
-    const isInCart = (id) => productCartList.find(product => product.id === id) ? true : false;
+    const isInCart = (id) =>{
+        const productExist = productCartList.some(item=>item.id === id);
+        return productExist;
+    }
 
     const totalPrice = () => {
         return productCartList.reduce((prev, act)=> prev + act.quantity * act.price, 0);
@@ -14,12 +17,21 @@ const CartProvider = ({children}) =>{
     const totalProducts = () => productCartList.reduce ((acumulador, productoActual)=> acumulador + productoActual.quantity, 0);
 
     const addItem = (item, quantity)=>{
+        const newProduct ={
+            ...item,
+            quantity
+        }
         if (isInCart(item.id)) {
-            setProductCartList(productCartList.map(product=>{
-                return product.id === item.id ? {...product, quantity: product.quantity + quantity} : product
-            }))
+            const productPos = productCartList.findIndex(product=>product.id === item.id);
+            const newArreglo = [...productCartList];
+            newArreglo[productPos].quantity = newArreglo[productPos].quantity + quantity;
+            newArreglo[productPos].quantityPrice = newArreglo[productPos].quantity * newArreglo[productPos].price;
+            setProductCartList(newArreglo);
         } else {
-            setProductCartList([...productCartList, {...item,quantity}])
+            const newArreglo = [...productCartList];
+            newProduct.quantityPrice = newProduct.quantity * newProduct.price;
+            newArreglo.push(newProduct);
+            setProductCartList(newArreglo);
         }
     }
 
@@ -43,6 +55,7 @@ const CartProvider = ({children}) =>{
             totalProducts, 
             totalPrice,
             productCartList,
+            isInCart,
             }}>
             {children}
         </CartContext.Provider>

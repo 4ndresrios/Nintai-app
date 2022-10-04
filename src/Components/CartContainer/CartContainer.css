@@ -1,0 +1,14 @@
+.Conteiner {
+    display: flex;
+    flex-direction: column;
+}
+
+.interConteiner {
+    display: flex;
+}
+
+.formConteiner {
+    display: flex;
+    flex-direction: column;
+    margin-left: 80px;
+}
