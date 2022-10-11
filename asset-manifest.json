@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.c6709db5.css",
-    "main.js": "/static/js/main.9096134a.js",
-    "static/js/787.9f152829.chunk.js": "/static/js/787.9f152829.chunk.js",
-    "static/media/logo.svg": "/static/media/logo.400b53646a52c11a65073a28dba2f4de.svg",
-    "static/media/CartWidget.svg": "/static/media/CartWidget.18b0dcabbb0b585612ed9f84b9e6b837.svg",
-    "index.html": "/index.html",
-    "main.c6709db5.css.map": "/static/css/main.c6709db5.css.map",
-    "main.9096134a.js.map": "/static/js/main.9096134a.js.map",
-    "787.9f152829.chunk.js.map": "/static/js/787.9f152829.chunk.js.map"
+    "main.css": "/Nintai-app/static/css/main.c6709db5.css",
+    "main.js": "/Nintai-app/static/js/main.58028189.js",
+    "static/js/787.9f152829.chunk.js": "/Nintai-app/static/js/787.9f152829.chunk.js",
+    "static/media/logo.svg": "/Nintai-app/static/media/logo.400b53646a52c11a65073a28dba2f4de.svg",
+    "static/media/CartWidget.svg": "/Nintai-app/static/media/CartWidget.18b0dcabbb0b585612ed9f84b9e6b837.svg",
+    "index.html": "/Nintai-app/index.html",
+    "main.c6709db5.css.map": "/Nintai-app/static/css/main.c6709db5.css.map",
+    "main.58028189.js.map": "/Nintai-app/static/js/main.58028189.js.map",
+    "787.9f152829.chunk.js.map": "/Nintai-app/static/js/787.9f152829.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c6709db5.css",
-    "static/js/main.9096134a.js"
+    "static/js/main.58028189.js"
   ]
 }
