@@ -1,9 +1,8 @@
-import data from "../../services/mock-data"
 import { useState, useEffect } from "react"
 import Itemlist from "../ItemList/ItemList";
 import "./ItemListContainer.css";
 import {useParams} from 'react-router-dom';
-import {db} from "../../utils/ItemCollection"
+import {db} from "../../utils/firebase";
 import { collection, getDocs, query, where } from "firebase/firestore"
 
 const ItemListContainer = () => {

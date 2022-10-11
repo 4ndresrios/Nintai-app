@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {CartContext} from "../../context/CartContext";
 import ItemCart from "../ItemCart/ItemCart";
 import { Link } from "react-router-dom";
-import {db} from "../../utils/ItemCollection";
+import {db} from "../../utils/firebase";
 import {collection, addDoc} from "firebase/firestore";
 import { useState } from "react";
 import "./CartContainer.css"
@@ -56,17 +56,19 @@ const CartContainer = () => {
                     {productCartList.map(product => <ItemCart key={product.id} product={product} />)}
                 </div>
                 <form className="formConteiner" onSubmit={sendOrder}>
+                    <p>Ingrese los siguientes datos<br>
+                    </br>para poder hacer su orden de pedido.</p>
                     <label>Nombre: </label>
-                    <input type="text"/>
+                    <input className="imput" type="text"/>
                     <label>Telefono: </label>
-                    <input type="number"/>
+                    <input className="imput" type="number"/>
                     <label>Correo: </label>
-                    <input type="email"/>
-                    <button className="buttonAgregar" type="submit">Enviar orden</button>
+                    <input className="imput" type="email"/>
+                    <button className="buttonEnviar" type="submit">Enviar orden</button>
                 </form>
             </div>
-            <p>Total: ${totalPrice()}</p>
-            {<button className="buttonAgregar" onClick={()=>cartClear()}>Limpiar Carrito</button>}
+            <p className="totalPrice">Total: ${totalPrice()}</p>
+            {<button className="buttonLimpiar" onClick={()=>cartClear()}>Limpiar Carrito</button>}
             
         </div>
     )
