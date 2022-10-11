@@ -4,7 +4,7 @@ Este es un proyecto de React Js creado en el curso realizado en coderhouse. Simu
 
 ## Demo del proyecto
 
-https://nintai.net.ar/
+https://nintai.surge.sh/
 
 ### ¿como fue realizado?
 
